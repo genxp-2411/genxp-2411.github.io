@@ -75,11 +75,17 @@ th {
   display: flex;
   flex-direction: column;
 
-  .nav-container {
+  .top-container {
+    width: 100%;
+    padding: 0;
+
+    position: sticky;
+    top: 0;
+    z-index: 100;
     color: var(--bgnd-color);
     background: var(--banner-color);
 
-    a.nav-home-link {
+    a.top-home-link {
       color: var(--bgnd-color);
       text-decoration: none;
 
@@ -88,18 +94,60 @@ th {
         text-decoration: underline;
       }
     }
+
+    .top-content {
+      display: block;
+      width: 100%;
+      max-width: var(--desktop-max);
+      margin: 0 auto;
+      margin-left: unquote("max(0%, (80% - var(--desktop-max)) / 2.3)");
+
+      h1 {
+        margin-bottom: 0;
+      }
+      h3 {
+        margin-top: 0;
+      }
+    }
   }
   
-  .body-section-container {
+  .body-container {
     width: 100%;
     padding: 0;
-  }
+    display: flex;
+    flex-direction: row;
 
-  .body-section {
-    width: 100%;
-    max-width: var(--desktop-max);
-    margin: 0 auto;
-    margin-left: unquote("max(0%, (100% - var(--desktop-max)) / 2.3)");
+    .body-section.content-section {
+      width: 80%;
+      max-width: var(--desktop-max);
+      margin: 0 auto;
+      margin-left: unquote("max(0%, (80% - var(--desktop-max)) / 2.3)");
+    }
+
+    .body-section.menu-section {
+      width: 20%;
+      height: 100vh;
+      z-index: 80;
+      background-color: var(--bgnd-color);
+
+      .menu-container {
+        height: 80%;
+        position: fixed;
+        padding-left: 10px;
+        margin-bottom: -20px;
+        overflow-y: scroll;
+        border-left: 2px solid #ddd;
+        background-color: var(--bgnd-color);
+
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+
+      .menu-container::-webkit-scrollbar {
+        display: none;
+      }
+
+    }
   }
 
   .body-section-content {
@@ -108,8 +156,8 @@ th {
   }
 }
 
-.home-details {
-  .home-summary {
+.menu-details {
+  .menu-summary {
     font-size: 1.5em;
     font-weight: 700;
     line-height: 1;
@@ -124,12 +172,12 @@ th {
     }
 
     &:hover {
-      .home-summary-title {
+      .menu-summary-title {
         text-decoration: underline;
       }
     }
 
-    .home-summary-subtitle {
+    .menu-summary-subtitle {
       &::before {
         content: "";
         display: block;
@@ -142,9 +190,13 @@ th {
   }
 
   ul {
-    list-style-position: outside;
-    margin-left: 0.7em;
+    line-height: 1.2;
+    margin-top: 8px;
     padding-left: 30px;
+
+    li:not(:last-child) {
+      margin-bottom: 12px;
+    }
   }
 }
 
@@ -353,7 +405,7 @@ th {
     --bgnd-color: #fff;
     --bgnd-color-h: #eee;
   }
-  .nav-container {
+  .top-container {
     display: none;
   }
 }

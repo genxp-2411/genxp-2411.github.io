@@ -5,4 +5,10 @@ document.addEventListener("DOMContentLoaded", () => {
       a.setAttribute("target", "_self");
     }
   });
+
+  const menu = document.getElementById("menu-container");
+  const top = document.getElementById("top-container");
+  const viewHeight = window.innerHeight;
+  const topHeight = top.offsetHeight;
+  menu.style.height = `${viewHeight - topHeight}px`;
 });
