@@ -27,7 +27,7 @@ It can be downloaded [here](https://code.visualstudio.com/#alt-downloads), and t
 
 Installing extensions on VS Code is easy:
 
-{% include video.html url="week04/ide-plugins.webm" %}
+{% include video.html url="week02/ide-plugins.webm" %}
 
 The following extensions are really useful for developing HTML/JavaScript and p5.js projects:
 
