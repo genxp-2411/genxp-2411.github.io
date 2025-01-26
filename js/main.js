@@ -16,12 +16,17 @@ document.addEventListener("DOMContentLoaded", () => {
   const url = window.location.href;
   let menuWeek = 1;
   const weekPos = url.indexOf("week");
+  const dataPos = url.indexOf("datasets");
   const hashNums = window.location.hash.match(/\d+/g);
 
-  if (weekPos > -1) {
+  if (dataPos > -1) {
+    menuWeek = 5;
+  } else if (weekPos > -1) {
     menuWeek = parseInt(url.slice(weekPos + 4, weekPos + 6));
+    menuWeek = (menuWeek > 4) ? menuWeek + 1 : menuWeek;
   } else if (hashNums) {
     menuWeek = parseInt(hashNums[0]);
+    menuWeek = (menuWeek > 4) ? menuWeek + 1 : menuWeek;
   }
 
   const menuDetailEls = document.getElementsByClassName("menu-details");
